@@ -12,6 +12,11 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@progress/kendo-drawing": "^1.21.2",
+    "@progress/kendo-licensing": "^1.5.1",
+    "@progress/kendo-react-all": "^10.0.0",
+    "@progress/kendo-react-charts": "^10.0.0",
+    "@progress/kendo-theme-default": "^10.3.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
