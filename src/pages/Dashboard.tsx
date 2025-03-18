@@ -1,68 +1,61 @@
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Navbar from "@/components/layout/Navbar";
-import Sidebar from "@/components/layout/Sidebar";
-import TimeTrackingChart from "@/components/dashboard/TimeTrackingChart";
-import LanguageDistribution from "@/components/dashboard/LanguageDistribution";
-import ProjectsTracking from "@/components/dashboard/ProjectsTracking";
-import ActivityTimeline from "@/components/dashboard/ActivityTimeline";
-import { currentUser, formatTime } from "@/lib/mockData";
+import React from 'react';
+import Navbar from '@/components/layout/Navbar';
+import Sidebar from '@/components/layout/Sidebar';
+import TimeTrackingChart from '@/components/dashboard/TimeTrackingChart';
+import LanguageDistribution from '@/components/dashboard/LanguageDistribution';
+import ProjectsTracking from '@/components/dashboard/ProjectsTracking';
+import ActivityTimeline from '@/components/dashboard/ActivityTimeline';
+import { currentUser, formatTime } from '@/lib/mockData';
 
 const Dashboard = () => {
   return (
     <>
       <Navbar />
       <Sidebar />
-      <main className="ml-64 mt-16 p-6">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-muted-foreground">
-            Track your coding activity and productivity
-          </p>
+      <main className="ml-64 mt-16 p-6 bg-gray-50 min-h-screen">
+        <div className="mb-8">
+          <h1 className="text-4xl font-extrabold text-gray-800">Dashboard</h1>
+          <p className="text-gray-600 mt-1">Track your coding activity and productivity</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                Today
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="k-card shadow-md">
+            <div className="k-card-header p-4 border-b bg-blue-50">
+              <h5 className="k-card-title text-sm font-semibold text-gray-500">Today</h5>
+            </div>
+            <div className="k-card-body p-4">
+              <div className="text-3xl font-bold text-blue-600">
                 {formatTime(currentUser.dailyHours[0].hours * 3600)}
               </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                This Week
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">
+            </div>
+          </div>
+          <div className="k-card shadow-md">
+            <div className="k-card-header p-4 border-b bg-blue-50">
+              <h5 className="k-card-title text-sm font-semibold text-gray-500">This Week</h5>
+            </div>
+            <div className="k-card-body p-4">
+              <div className="text-3xl font-bold text-blue-600">
                 {formatTime(
                   currentUser.dailyHours
                     .slice(0, 7)
                     .reduce((acc, day) => acc + day.hours * 3600, 0)
                 )}
               </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                Daily Average
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{formatTime(currentUser.dailyAverage)}</div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+          <div className="k-card shadow-md">
+            <div className="k-card-header p-4 border-b bg-blue-50">
+              <h5 className="k-card-title text-sm font-semibold text-gray-500">Daily Average</h5>
+            </div>
+            <div className="k-card-body p-4">
+              <div className="text-3xl font-bold text-blue-600">
+                {formatTime(currentUser.dailyAverage)}
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <TimeTrackingChart dailyHours={currentUser.dailyHours} />
           <LanguageDistribution languages={currentUser.languages} />
         </div>

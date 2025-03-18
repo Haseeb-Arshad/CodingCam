@@ -1,47 +1,46 @@
+import React from 'react';
+import { formatTime } from '@/lib/mockData';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { ActivityItem, formatTime } from "@/lib/mockData";
-
-interface ActivityTimelineProps {
-  activity: ActivityItem[];
-}
-
-const ActivityTimeline = ({ activity }: ActivityTimelineProps) => {
+const ActivityTimeline = ({ activity }) => {
   return (
-    <Card className="h-full">
-      <CardHeader>
-        <CardTitle>Recent Activity</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <ScrollArea className="h-[280px]">
-          <div className="space-y-4">
-            {activity.map((item, index) => (
+    <div className="k-card h-full shadow-md">
+      <div className="k-card-header p-4 border-b bg-blue-50">
+        <h5 className="k-card-title text-lg font-semibold text-gray-800">Recent Activity</h5>
+      </div>
+      <div className="k-card-body p-4" style={{ height: '280px', overflowY: 'auto' }}>
+        <div className="space-y-4">
+          {activity.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-start gap-4 rounded-lg border p-3 bg-white hover:bg-blue-50 transition-all"
+            >
               <div
-                key={index}
-                className="flex items-start gap-4 rounded-lg border p-3"
-              >
-                <div
-                  className="mt-1 h-2 w-2 rounded-full"
-                  style={{ backgroundColor: item.language === "TypeScript" ? "#007ACC" : item.language === "JavaScript" ? "#F7DF1E" : "#E34F26" }}
-                />
-                <div className="space-y-1 flex-1">
-                  <div className="flex items-center justify-between">
-                    <p className="font-medium">{item.project}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {new Date(item.date).toLocaleDateString()}
-                    </p>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    {item.language} • {formatTime(item.duration)}
+                className="mt-1 h-3 w-3 rounded-full"
+                style={{
+                  backgroundColor:
+                    item.language === 'TypeScript'
+                      ? '#007ACC'
+                      : item.language === 'JavaScript'
+                      ? '#F7DF1E'
+                      : '#E34F26',
+                }}
+              />
+              <div className="space-y-1 flex-1">
+                <div className="flex items-center justify-between">
+                  <p className="font-medium text-gray-800">{item.project}</p>
+                  <p className="text-sm text-gray-500">
+                    {new Date(item.date).toLocaleDateString()}
                   </p>
                 </div>
+                <p className="text-sm text-gray-500">
+                  {item.language} • {formatTime(item.duration)}
+                </p>
               </div>
-            ))}
-          </div>
-        </ScrollArea>
-      </CardContent>
-    </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

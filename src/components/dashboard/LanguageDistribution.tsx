@@ -1,23 +1,18 @@
-
+import React from 'react';
 import {
   Chart,
   ChartSeries,
   ChartSeriesItem,
   ChartLegend,
   ChartTitle,
-} from "@progress/kendo-react-charts";
-import { LanguageStat } from "@/lib/mockData";
-import "hammerjs";
+} from '@progress/kendo-react-charts';
+import 'hammerjs';
 
-interface LanguageDistributionProps {
-  languages: LanguageStat[];
-}
-
-const LanguageDistribution = ({ languages }: LanguageDistributionProps) => {
+const LanguageDistribution = ({ languages }) => {
   return (
-    <div className="kendo-chart-wrapper">
+    <div className="k-card shadow-md p-4 bg-white">
       <Chart>
-        <ChartTitle text="Languages" />
+        <ChartTitle text="Languages" font="16px Arial, sans-serif" color="#333" />
         <ChartLegend position="right" />
         <ChartSeries>
           <ChartSeriesItem

@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 import ProfileOverview from "@/components/profile/ProfileOverview";
@@ -12,7 +11,7 @@ const Profile = () => {
     <>
       <Navbar />
       <Sidebar />
-      <main className="ml-64 mt-16 p-6">
+      <main className="ml-64 mt-16 p-6 bg-background">
         <div className="mb-6">
           <h1 className="text-3xl font-bold">Profile</h1>
           <p className="text-muted-foreground">View and manage your profile</p>

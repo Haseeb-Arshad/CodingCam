@@ -1,10 +1,16 @@
-
+import React from 'react';
+import { formatTime } from '@/lib/mockData';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ProjectStat, formatTime } from "@/lib/mockData";
+
+interface Project {
+  name: string;
+  lastActive: string;
+  time: number;
+}
 
 interface ProjectsTrackingProps {
-  projects: ProjectStat[];
+  projects: Project[];
 }
 
 const ProjectsTracking = ({ projects }: ProjectsTrackingProps) => {
@@ -14,12 +20,12 @@ const ProjectsTracking = ({ projects }: ProjectsTrackingProps) => {
         <CardTitle>Projects</CardTitle>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[280px]">
+        <ScrollArea className="h-[300px]">
           <div className="space-y-4">
             {projects.map((project) => (
               <div
                 key={project.name}
-                className="flex items-center justify-between rounded-lg border p-3"
+                className="flex items-center justify-between rounded-lg border p-3 bg-card hover:bg-muted transition-all duration-200"
               >
                 <div className="space-y-1">
                   <p className="font-medium">{project.name}</p>
@@ -28,7 +34,7 @@ const ProjectsTracking = ({ projects }: ProjectsTrackingProps) => {
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="font-medium">{formatTime(project.time)}</p>
+                  <p className="font-medium text-primary">{formatTime(project.time)}</p>
                 </div>
               </div>
             ))}
