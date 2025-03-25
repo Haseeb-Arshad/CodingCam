@@ -41,8 +41,9 @@ These instructions will get you a copy of the frontend project up and running on
 1.  **Clone the repository:**
 
     ```bash
-    git clone <repository_url>  # Replace <repository_url> with the actual URL
-    cd codingcam
+    https://github.com/Haseeb-Arshad/CodingCam.git
+    cd CodingCam
+    
     ```
 
 2.  **Install dependencies:**
