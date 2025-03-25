@@ -4,7 +4,7 @@
 
 ## Overview
 
-CodingCam is a web application designed to help developers visualize and track their coding activity. This repository contains the frontend code for the CodingCam dashboard, a user-friendly interface that displays data collected by the CodingCam extension (available separately).  The dashboard provides insights into your coding habits, project progress, and even offers a global view of coding activity.
+CodingCam is a web application designed to help developers visualize and track their coding activity. This repository contains the frontend code for the CodingCam dashboard, a user-friendly interface that displays data collected by the [CodingCam Extension](https://github.com/Haseeb-Arshad/codingcam-extension).  The dashboard provides insights into your coding habits, project progress, and even offers a global view of coding activity. The data is provided by the [CodingCam Backend](https://github.com/Haseeb-Arshad/codingcam-backend).
 
 ## Features
 
@@ -41,9 +41,9 @@ These instructions will get you a copy of the frontend project up and running on
 1.  **Clone the repository:**
 
     ```bash
-    https://github.com/Haseeb-Arshad/CodingCam.git
-    cd CodingCam
-    
+    git clone <repository_url>  # Replace <repository_url> with the actual URL of YOUR frontend repo.
+    git clone https://github.com/Haseeb-Arshad/CodingCam.git
+    cd codingcam-frontend
     ```
 
 2.  **Install dependencies:**
@@ -59,7 +59,7 @@ These instructions will get you a copy of the frontend project up and running on
     Create a `.env` file in the root directory of the project. This file will store environment variables, such as API endpoints.  You'll need to configure this file to connect to your backend. Example:
 
     ```
-    VITE_API_BASE_URL=http://localhost:3001/api # Replace with your backend URL
+    VITE_API_BASE_URL=http://localhost:5000/api # Replace with your ACTUAL backend URL
     ```
    *Make sure to replace the example `VITE_API_BASE_URL` with the actual URL of your backend server.*
 
@@ -71,7 +71,7 @@ These instructions will get you a copy of the frontend project up and running on
     yarn dev
     ```
 
-    This will start the development server, typically on `http://localhost:5173` (or a similar port).  Open your browser and navigate to that URL to view the application.
+    This will start the development server, typically on `http://localhost:8080` (or a similar port).  Open your browser and navigate to that URL to view the application.
 
 ### Building for Production
 
