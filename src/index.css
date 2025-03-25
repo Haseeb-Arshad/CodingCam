@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,16 +15,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 196 87% 51%;
+    --primary: 196 100% 23%; /* #014D71 */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 200 98% 39%;
+    --secondary: 196 100% 23%; /* #014D71 with opacity */
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 202 67% 55%;
+    --accent: 196 100% 23%; /* #014D71 */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,18 +32,18 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 196 87% 51%;
+    --ring: 196 100% 23%; /* #014D71 */
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 196 87% 51%;
+    --sidebar-primary: 196 100% 23%; /* #014D71 */
     --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 202 67% 55%;
+    --sidebar-accent: 196 100% 23%; /* #014D71 */
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 196 87% 51%;
+    --sidebar-ring: 196 100% 23%; /* #014D71 */
   }
 
   .dark {
@@ -56,16 +56,16 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 196 87% 51%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 196 100% 23%; /* #014D71 */
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 200 98% 39%;
+    --secondary: 196 100% 23%; /* #014D71 with opacity */
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 202 67% 55%;
+    --accent: 196 100% 23%; /* #014D71 */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -73,16 +73,16 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 196 87% 51%;
+    --ring: 196 100% 23%; /* #014D71 */
     
     --sidebar-background: 222.2 84% 4.9%;
     --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 196 87% 51%;
-    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
-    --sidebar-accent: 202 67% 55%;
+    --sidebar-primary: 196 100% 23%; /* #014D71 */
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 196 100% 23%; /* #014D71 */
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 196 87% 51%;
+    --sidebar-ring: 196 100% 23%; /* #014D71 */
   }
 }
 
@@ -94,17 +94,186 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
 @layer components {
   .kendo-chart-wrapper {
-    @apply w-full h-full min-h-[300px] p-4 rounded-lg bg-white;
+    @apply w-full h-full min-h-[300px] p-4 rounded-lg bg-white dark:bg-gray-800 transition-colors duration-300;
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-wakatime-primary to-wakatime-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#014D71] to-[#014D71]/80 bg-clip-text text-transparent;
+  }
+
+  .animate-stagger {
+    animation: stagger 0.5s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale {
+    animation: scale 0.3s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-out {
+    animation: slideOut 0.5s ease-out forwards;
+  }
+
+  .animate-rotate {
+    animation: rotate 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes stagger {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#014D71] dark:bg-[#014D71]/80 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#014D71]/90 dark:bg-[#014D71]/70;
+}
+
+/* Card hover effects */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(1, 77, 113, 0.1);
+}
+
+/* Button hover effects */
+.hover-button {
+  transition: all 0.3s ease;
+}
+
+.hover-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(1, 77, 113, 0.2);
+}
+
+/* Input focus effects */
+.focus-input {
+  transition: all 0.3s ease;
+}
+
+.focus-input:focus {
+  box-shadow: 0 0 0 3px rgba(1, 77, 113, 0.2);
+}
+
+/* Loading animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -155,4 +324,246 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Animation classes */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Page transition animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* KendoReact customizations */
+.k-button {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.k-button:hover {
+  @apply transform scale-[1.02];
+}
+
+.k-textbox {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.k-textbox:focus {
+  @apply ring-2 ring-[#014D71] ring-opacity-50;
+}
+
+/* Text gradient */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#014D71] to-[#014D71]/80;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-[1.02];
+}
+
+/* Button hover effects */
+.button-hover {
+  @apply transition-all duration-200 ease-in-out hover:scale-[1.05] active:scale-[0.95];
+}
+
+/* Input focus effects */
+.input-focus {
+  @apply transition-all duration-200 ease-in-out focus:ring-2 focus:ring-[#014D71] focus:ring-opacity-50;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-8 h-8 border-4 border-[#014D71] border-t-transparent rounded-full animate-spin;
+}
+
+/* Fade animations */
+.fade-in {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+
+.fade-in-enter {
+  opacity: 0;
+}
+
+.fade-in-enter-active {
+  opacity: 1;
+}
+
+.fade-in-exit {
+  opacity: 1;
+}
+
+.fade-in-exit-active {
+  opacity: 0;
+}
+
+/* Slide animations */
+.slide-in {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.slide-in-enter {
+  transform: translateX(-100%);
+}
+
+.slide-in-enter-active {
+  transform: translateX(0);
+}
+
+.slide-in-exit {
+  transform: translateX(0);
+}
+
+.slide-in-exit-active {
+  transform: translateX(100%);
+}
+
+/* Scale animations */
+.scale-in {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.scale-in-enter {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.scale-in-enter-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scale-in-exit {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scale-in-exit-active {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+/* Rotate animations */
+.rotate-in {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.rotate-in-enter {
+  transform: rotate(-180deg);
+  opacity: 0;
+}
+
+.rotate-in-enter-active {
+  transform: rotate(0);
+  opacity: 1;
+}
+
+.rotate-in-exit {
+  transform: rotate(0);
+  opacity: 1;
+}
+
+.rotate-in-exit-active {
+  transform: rotate(180deg);
+  opacity: 0;
+}
+
+/* Pulse animations */
+.pulse {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.pulse-enter {
+  transform: scale(1);
+}
+
+.pulse-enter-active {
+  transform: scale(1.05);
+}
+
+.pulse-exit {
+  transform: scale(1.05);
+}
+
+.pulse-exit-active {
+  transform: scale(1);
+}
+
+/* Typewriter effect for ComingSoon pages */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.typewriter-text {
+  position: relative;
+  overflow: hidden;
+  border-right: 2px solid currentColor;
+  animation: typing 3.5s steps(30, end) 1s 1 normal both,
+             blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
+/* Code particle hover effect */
+.code-particle {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.code-particle:hover {
+  color: #014D71;
+  transform: scale(1.2);
+  z-index: 10;
 }

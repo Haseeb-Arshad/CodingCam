@@ -63,16 +63,16 @@ export const currentUser: User = {
     { name: "Python", percentage: 5, time: 61780, color: "#3776AB" }
   ],
   projects: [
-    { name: "WakaTime Clone", time: 432000, lastActive: "2023-06-15" },
+    { name: "LMS", time: 432000, lastActive: "2023-06-15" },
     { name: "E-commerce Site", time: 345600, lastActive: "2023-06-10" },
     { name: "Personal Website", time: 172800, lastActive: "2023-06-05" },
     { name: "Mobile App", time: 86400, lastActive: "2023-06-01" },
   ],
   activity: [
-    { date: "2023-06-15", project: "WakaTime Clone", language: "TypeScript", duration: 14400 },
-    { date: "2023-06-14", project: "WakaTime Clone", language: "TypeScript", duration: 18000 },
+    { date: "2023-06-15", project: "LMS", language: "TypeScript", duration: 14400 },
+    { date: "2023-06-14", project: "LMS", language: "TypeScript", duration: 18000 },
     { date: "2023-06-13", project: "E-commerce Site", language: "JavaScript", duration: 10800 },
-    { date: "2023-06-12", project: "WakaTime Clone", language: "CSS", duration: 7200 },
+    { date: "2023-06-12", project: "LMS", language: "CSS", duration: 7200 },
     { date: "2023-06-11", project: "Personal Website", language: "HTML", duration: 3600 },
     { date: "2023-06-10", project: "E-commerce Site", language: "JavaScript", duration: 9000 },
     { date: "2023-06-09", project: "Mobile App", language: "TypeScript", duration: 5400 },

@@ -12,6 +12,7 @@ import {
   LightbulbIcon,
   Users,
   Settings,
+  Globe,
 } from 'lucide-react';
 
 const Sidebar = () => {
@@ -27,6 +28,7 @@ const Sidebar = () => {
     { icon: <Folder className="h-5 w-5" />, label: 'Projects', href: '/projects' },
     { icon: <LightbulbIcon className="h-5 w-5" />, label: 'Insights', href: '/insights' },
     { icon: <Users className="h-5 w-5" />, label: 'Teams', href: '/teams' },
+    { icon: <Globe className="h-5 w-5" />, label: 'Global Progress', href: '/global-progress' },
     { icon: <Settings className="h-5 w-5" />, label: 'Settings', href: '/settings' },
   ];
 
