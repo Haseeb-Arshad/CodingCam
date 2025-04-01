@@ -1,69 +1,82 @@
-# Welcome to your Lovable project
+# CodingCam - Frontend
 
-## Project info
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**URL**: https://lovable.dev/projects/94d1becb-a3db-4b4e-ad9c-8de2d8c2dc2c
+## Overview
 
-## How can I edit this code?
+CodingCam is a web application designed to help developers visualize and track their coding activity. This repository contains the frontend code for the CodingCam dashboard, a user-friendly interface that displays data collected by the [CodingCam Extension](https://github.com/Haseeb-Arshad/codingcam-extension).  The dashboard provides insights into your coding habits, project progress, and even offers a global view of coding activity. The data is provided by the [CodingCam Backend](https://github.com/Haseeb-Arshad/codingcam-backend).
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+*   **Dashboard:**  A central hub displaying key coding metrics, including total coding time, active projects, and recent activity, all beautifully visualized with interactive charts.
+*   **Reports:** Detailed breakdowns of coding sessions, filterable by date range, project, and programming language.
+*   **Leaderboard:**  A gamified view of coding activity, ranking users (anonymously if desired) based on their coding time, adding a fun, competitive element.
+*   **Project Management:**  Dedicated sections to manage individual projects, track time spent, and monitor progress.
+*   **Goal Setting:**  Set personal coding goals and track your progress towards achieving them.
+*   **Global Progress Map:** A visually engaging 3D map showcasing aggregated, anonymized coding activity from around the world.
+*   **User Profile and Settings:**  Customize your profile, adjust application preferences, and manage notification settings.
+*   **Insights:** (Coming Soon) Personalized recommendations and observations based on your coding patterns.
+*   **Teams:** (Future Feature) Collaborate and track coding activity within teams.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/94d1becb-a3db-4b4e-ad9c-8de2d8c2dc2c) and start prompting.
+## Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
+*   **React:** A JavaScript library for building user interfaces.
+*   **Vite.js:** A fast build tool that significantly improves the frontend development experience.
+*   **TypeScript:** A superset of JavaScript that adds static typing, enhancing code quality and maintainability.
+*   **React Router:** A library for handling navigation and routing within the application.
+*   **UI Component Library**: Provides pre-built, customizable UI components for a polished and consistent user experience.
+*  **Styling:** `@progress/kendo-theme-default/dist/all.css`.
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+These instructions will get you a copy of the frontend project up and running on your local machine for development and testing purposes.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+*   **Node.js:** (v16 or higher recommended) Download and install Node.js from [nodejs.org](https://nodejs.org/).
+*   **npm:** (or yarn) npm is typically installed with Node.js. You can also use yarn as an alternative package manager.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1.  **Clone the repository:**
 
-# Step 3: Install the necessary dependencies.
-npm i
+    ```bash
+    git clone https://github.com/Haseeb-Arshad/CodingCam.git
+    cd codingcam-frontend
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+2.  **Install dependencies:**
 
-**Edit a file directly in GitHub**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3.  **Create a `.env` file:**
 
-**Use GitHub Codespaces**
+    Create a `.env` file in the root directory of the project. This file will store environment variables, such as API endpoints.  You'll need to configure this file to connect to your backend. Example:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+    ```
+    VITE_API_BASE_URL=http://localhost:5000/api # Replace with your ACTUAL backend URL
+    ```
+   *Make sure to replace the example `VITE_API_BASE_URL` with the actual URL of your backend server.*
 
-## What technologies are used for this project?
+4.  **Run the development server:**
 
-This project is built with .
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+    This will start the development server, typically on `http://localhost:8080` (or a similar port).  Open your browser and navigate to that URL to view the application.
 
-## How can I deploy this project?
+### Building for Production
 
-Simply open [Lovable](https://lovable.dev/projects/94d1becb-a3db-4b4e-ad9c-8de2d8c2dc2c) and click on Share -> Publish.
+To build the application for production:
 
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+```bash
+npm run build
+# or
+yarn build
