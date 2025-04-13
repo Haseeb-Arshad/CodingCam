@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@progress/kendo-react-buttons';
-import { TextBox } from '@progress/kendo-react-inputs';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Loader2, Code, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
@@ -74,14 +72,14 @@ export const Login: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#014D71] to-[#01395a] relative overflow-hidden">
       {/* Parallax background elements */}
-      <div className="parallax-bg absolute inset-0">
+      <div className="parallax-bg absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-[#014D71]/20 to-transparent"></div>
       </div>
 
       {/* Animated background shapes */}
       <motion.div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -91,7 +89,7 @@ export const Login: React.FC = () => {
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </motion.div>
 
-      <div className="w-full max-w-md px-4">
+      <div className="w-full max-w-md px-4 py-12 relative z-10">
         <div className="text-center mb-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -122,7 +120,7 @@ export const Login: React.FC = () => {
         </div>
 
         <Card className="auth-card bg-white/95 backdrop-blur-sm border-none shadow-2xl">
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 pb-6">
             {successMessage && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
@@ -138,14 +136,14 @@ export const Login: React.FC = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                   Email
                 </label>
-                <TextBox
+                <input
                   id="email"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.value as string)}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="Enter your email"
-                  className="w-full"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#014D71] focus:border-transparent transition-all"
                 />
               </div>
               <div className="space-y-2">
@@ -157,14 +155,14 @@ export const Login: React.FC = () => {
                     Forgot password?
                   </a>
                 </div>
-                <TextBox
+                <input
                   id="password"
                   type="password"
                   value={password}
-                  onChange={(e) => setPassword(e.value as string)}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Enter your password"
-                  className="w-full"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#014D71] focus:border-transparent transition-all"
                 />
               </div>
               {error && (
@@ -176,11 +174,9 @@ export const Login: React.FC = () => {
                   {error}
                 </motion.div>
               )}
-              <Button
+              <button
                 type="submit"
-                themeColor="primary"
-                size="large"
-                className="w-full bg-[#014D71] hover:bg-[#013657] font-medium"
+                className="w-full bg-[#014D71] hover:bg-[#013657] text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 flex items-center justify-center"
                 disabled={isLoading}
               >
                 {isLoading ? (
@@ -193,7 +189,7 @@ export const Login: React.FC = () => {
                     Sign In <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 )}
-              </Button>
+              </button>
               <div className="text-center mt-6">
                 <p className="text-gray-600">
                   Don't have an account?{' '}

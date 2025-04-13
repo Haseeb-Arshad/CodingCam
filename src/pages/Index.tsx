@@ -3,9 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Button } from '@progress/kendo-react-buttons';
 import { Clock, Code, BarChart2, Layers, Award, GitBranch, Globe, Users, Target } from 'lucide-react';
-import '@progress/kendo-theme-default/dist/all.css';
 import '../index.css'; // Custom CSS for header, cards, animations, etc.
 
 // Register ScrollTrigger with GSAP
@@ -198,7 +196,7 @@ const Index = () => {
           <div className="flex items-center space-x-4">
             <Link to="/login" className="text-[#014D71] font-medium hover:underline">Log In</Link>
             <Link to="/signup">
-              <Button themeColor="primary" className="bg-[#014D71] hover:bg-[#014D71]/90">Sign Up</Button>
+              <button className="bg-[#014D71] hover:bg-[#014D71]/90 text-white py-2 px-4 rounded-md">Sign Up</button>
             </Link>
           </div>
         </div>
@@ -228,22 +226,18 @@ const Index = () => {
             </p>
             <div className="hero-cta mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link to="/signup">
-                <Button
-                  themeColor="primary"
-                  size="large"
-                  className="w-full sm:w-auto bg-[#014D71] hover:bg-[#014D71]/90 hover:scale-105 transition-transform"
+                <button
+                  className="w-full sm:w-auto bg-[#014D71] hover:bg-[#014D71]/90 hover:scale-105 transition-transform text-white py-3 px-6 rounded-md font-medium"
                 >
                   Get Started — It's Free
-                </Button>
+                </button>
               </Link>
               <Link to="#how-it-works">
-                <Button
-                  themeColor="base"
-                  size="large"
-                  className="w-full sm:w-auto text-gray-700 border-gray-300 hover:bg-gray-50"
+                <button
+                  className="w-full sm:w-auto text-gray-700 border border-gray-300 hover:bg-gray-50 py-3 px-6 rounded-md font-medium"
                 >
                   See How It Works
-                </Button>
+                </button>
               </Link>
             </div>
             <div className="mt-8 flex items-center space-x-4 text-sm text-gray-500">
@@ -462,13 +456,11 @@ const Index = () => {
               Join thousands of developers who are tracking their time, improving their skills, and becoming more productive.
             </p>
             <Link to="/signup">
-              <Button
-                themeColor="primary"
-                size="large"
-                className="bg-[#014D71] hover:bg-[#014D71]/90 hover:scale-105 transition-transform"
+              <button
+                className="bg-[#014D71] hover:bg-[#014D71]/90 hover:scale-105 transition-transform text-white py-3 px-6 rounded-md font-medium"
               >
                 Get Started For Free
-              </Button>
+              </button>
             </Link>
           </div>
         </div>

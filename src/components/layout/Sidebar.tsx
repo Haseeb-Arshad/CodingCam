@@ -1,5 +1,4 @@
 import React from 'react';
-import { Menu } from '@progress/kendo-react-layout';
 import { Link, useLocation } from 'react-router-dom';
 import cn from 'classnames';
 import {
@@ -32,40 +31,29 @@ const Sidebar = () => {
     { icon: <Settings className="h-5 w-5" />, label: 'Settings', href: '/settings' },
   ];
 
-  const menuItems = sidebarItems.map(item => ({
-    text: item.label,
-    data: { href: item.href, icon: item.icon },
-  }));
-
   return (
     <aside className="fixed left-0 top-16 z-30 h-[calc(100vh-4rem)] w-64 border-r bg-gray-100 p-4 shadow-lg">
       <div className="space-y-6">
-        {/* <div className="py-2">
-          <h2 className="text-xl font-bold text-gray-800 tracking-wide">Navigation</h2>
-        </div> */}
-        <Menu
-          vertical
-          style={{ background: 'transparent' }}
-          items={menuItems}
-          itemRender={(props) => {
-            const { item } = props;
-            const isActive = pathname === item.data.href;
+        <nav className="flex flex-col space-y-1">
+          {sidebarItems.map((item) => {
+            const isActive = pathname === item.href;
             return (
               <Link
-                to={item.data.href}
+                key={item.href}
+                to={item.href}
                 className={cn(
-                  'k-menu-link flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-all',
+                  'flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium transition-all',
                   isActive
-                    ? 'bg-blue-500 text-white shadow-md'
-                    : 'text-gray-700 hover:bg-blue-100 hover:text-blue-600'
+                    ? 'bg-[#014D71] text-white shadow-md'
+                    : 'text-gray-700 hover:bg-blue-100 hover:text-[#014D71]'
                 )}
               >
-                {item.data.icon}
-                <span className="k-menu-link-text">{item.text}</span>
+                {item.icon}
+                <span>{item.label}</span>
               </Link>
             );
-          }}
-        />
+          })}
+        </nav>
       </div>
     </aside>
   );

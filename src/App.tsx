@@ -19,9 +19,6 @@ import Goals from '@/pages/Goals';
 import Teams from '@/pages/Teams';
 import GlobalProgress from '@/pages/GlobalProgress';
 
-// Styles for KendoReact
-import '@progress/kendo-theme-default/dist/all.css';
-
 // ScrollToTop component to reset scroll position on page change
 const ScrollToTop = () => {
   const { pathname } = useLocation();

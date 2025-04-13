@@ -44,6 +44,10 @@
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-border: 214.3 31.8% 91.4%;
     --sidebar-ring: 196 100% 23%; /* #014D71 */
+
+    --primary-color: #014D71;
+    --primary-lighter: #e6f0f5;
+    --primary-hover: rgba(1, 77, 113, 0.8);
   }
 
   .dark {
@@ -343,15 +347,15 @@
 }
 
 .animate-blob {
-  animation: blob 7s infinite;
+  animation: blob 15s infinite;
 }
 
 .animation-delay-2000 {
-  animation-delay: 2s;
+  animation-delay: 5s;
 }
 
 .animation-delay-4000 {
-  animation-delay: 4s;
+  animation-delay: 10s;
 }
 
 /* Page transition animations */
@@ -566,4 +570,41 @@
   color: #014D71;
   transform: scale(1.2);
   z-index: 10;
+}
+
+/* KendoReact DatePicker custom styling */
+.k-datepicker-custom .k-select {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.k-datepicker-custom:focus-within {
+  box-shadow: 0 0 0 3px rgba(1, 77, 113, 0.2) !important;
+}
+
+.k-datepicker-popup-custom .k-calendar-cell.k-selected .k-link {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.k-datepicker-popup-custom .k-calendar-cell.k-today .k-link {
+  background-color: var(--primary-lighter) !important;
+  color: var(--primary-color) !important;
+  font-weight: bold;
+}
+
+.k-datepicker-popup-custom .k-calendar-cell:hover .k-link {
+  background-color: var(--primary-hover) !important;
+  color: white !important;
+}
+
+.k-datepicker-popup-custom .k-calendar-header,
+.k-datepicker-popup-custom .k-footer {
+  background-color: white !important;
+}
+
+.k-datepicker-popup-custom .k-calendar-header .k-link:hover,
+.k-datepicker-popup-custom .k-footer .k-link:hover {
+  background-color: var(--primary-lighter) !important;
+  color: var(--primary-color) !important;
 }

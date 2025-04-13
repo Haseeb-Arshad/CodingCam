@@ -228,6 +228,36 @@ const ContributionHeatmap = ({ data }: { data: any[] }) => {
   );
 };
 
+// Add custom styles for DatePicker
+const datePickerStyles = {
+  wrapperStyles: {
+    backgroundColor: 'white',
+    border: '1px solid #e2e8f0',
+    borderRadius: '0.375rem',
+  },
+  calendarStyles: {
+    backgroundColor: 'white',
+    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    borderRadius: '0.375rem',
+  },
+  cellStyles: {
+    selected: {
+      backgroundColor: '#014D71',
+      color: 'white'
+    },
+    hover: {
+      backgroundColor: '#014D71',
+      opacity: 0.8, 
+      color: 'white'
+    },
+    today: {
+      backgroundColor: '#e6f0f5',
+      color: '#014D71',
+      fontWeight: 'bold'
+    }
+  }
+};
+
 const Reports = () => {
   console.log("Rendering Reports component");
   const { token } = useAuth();
@@ -419,22 +449,39 @@ const Reports = () => {
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">From:</span>
-                <DatePicker 
+                <span className="text-sm text-gray-600">From:</span>
+                <DatePicker
                   value={startDate}
-                  onChange={(e: any) => setStartDate(e.value)}
+                  onChange={(e) => setStartDate(e.value)}
                   format="MMM d, yyyy"
-                  className="w-40"
+                  className="k-datepicker-custom"
+                  popupSettings={{
+                    className: "k-datepicker-popup-custom",
+                  }}
+                  style={{
+                    ...datePickerStyles.wrapperStyles,
+                    "::selection": {
+                      backgroundColor: "#014D71"
+                    }
+                  }}
                 />
               </div>
-              
               <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">To:</span>
-                <DatePicker 
+                <span className="text-sm text-gray-600">To:</span>
+                <DatePicker
                   value={endDate}
-                  onChange={(e: any) => setEndDate(e.value)}
+                  onChange={(e) => setEndDate(e.value)}
                   format="MMM d, yyyy"
-                  className="w-40"
+                  className="k-datepicker-custom"
+                  popupSettings={{
+                    className: "k-datepicker-popup-custom",
+                  }}
+                  style={{
+                    ...datePickerStyles.wrapperStyles,
+                    "::selection": {
+                      backgroundColor: "#014D71"
+                    }
+                  }}
                 />
               </div>
               
@@ -554,22 +601,40 @@ const Reports = () => {
           
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">From:</span>
-              <DatePicker 
+              <span className="text-sm text-gray-600">From:</span>
+              <DatePicker
                 value={startDate}
-                onChange={(e: any) => setStartDate(e.value)}
+                onChange={(e) => setStartDate(e.value)}
                 format="MMM d, yyyy"
-                className="w-40"
+                className="k-datepicker-custom"
+                popupSettings={{
+                  className: "k-datepicker-popup-custom",
+                }}
+                style={{
+                  ...datePickerStyles.wrapperStyles,
+                  "::selection": {
+                    backgroundColor: "#014D71"
+                  }
+                }}
               />
             </div>
             
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">To:</span>
-              <DatePicker 
+              <span className="text-sm text-gray-600">To:</span>
+              <DatePicker
                 value={endDate}
-                onChange={(e: any) => setEndDate(e.value)}
+                onChange={(e) => setEndDate(e.value)}
                 format="MMM d, yyyy"
-                className="w-40"
+                className="k-datepicker-custom"
+                popupSettings={{
+                  className: "k-datepicker-popup-custom",
+                }}
+                style={{
+                  ...datePickerStyles.wrapperStyles,
+                  "::selection": {
+                    backgroundColor: "#014D71"
+                  }
+                }}
               />
             </div>
             
